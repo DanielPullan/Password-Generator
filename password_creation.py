@@ -4,20 +4,31 @@
 
 import random
 import pyperclip
+import csv
 
 secure_random = random.SystemRandom()
 
-first_word = ['Hello', 'Darkness', 'Friend', 'Silent', 'Sunshine', 'Batman', 'Mario', 'Officer', 'Doggo', 'Pupper', 'Elephants']
+def getFirstWord():
+    lines = [line.rstrip('\n') for line in open('first.txt')]
+    return(lines)
 
-second_word = ['Goodbye', 'Lightness', 'Enemy', 'Loud', 'Moonshine', 'Robin', 'Luigi', 'Doctor', 'Paddy', 'Kitten', 'Whales']
+def getSecondWord():
+    lines = [line.rstrip('\n') for line in open('second.txt')]
+    return(lines)
 
-number = ['3264', '18', '2018', '8664', '2848', '1366', '1922']
+def getNumber():
+    lines = [line.rstrip('\n') for line in open('numbers.txt')]
+    return(lines)
+
+firstWord = getFirstWord()
+secondWord = getSecondWord()
+number = getNumber()
 
 def makePassword():
-    first = (secure_random.choice(first_word))
-    second = (secure_random.choice(second_word))
-    last = (secure_random.choice(number))
-    password = (first+second+last)
+    firstBit = (secure_random.choice(firstWord))
+    secondBit = (secure_random.choice(secondWord))
+    numberBit = (secure_random.choice(number))
+    password = (firstBit+secondBit+numberBit)
     return password
 
 completed_password = makePassword()
