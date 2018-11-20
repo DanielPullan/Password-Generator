@@ -33,6 +33,13 @@ def makePassword():
 
 completed_password = makePassword()
 
-print(completed_password)
-pyperclip.copy(completed_password)
-print("Copied to clipboard.")
+
+input = input("Would you like to copy the password to your clipboard? (Y/N)")
+
+if input in ("y", "Y", "yes", "YES", "Yes"):
+    pyperclip.copy(completed_password)
+    print("Copied to clipboard.")
+elif input in ("n", "N", "no", "NO"):
+    print("The password is " + completed_password)
+else:
+    print("Sorry, I didn't understand that")
