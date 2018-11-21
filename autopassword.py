@@ -33,16 +33,4 @@ def makePassword():
 
 completed_password = makePassword()
 
-input = input("Would you like to copy the password to your clipboard? (Y/N) ")
-
-yarp = ["y", "Y", "yes", "YES", "Yes","yarp", "YARP", "Yarp"]
-
-narp =["n", "N", "no", "NO", "narp", "NARP", "Narp"]
-
-if input in yarp:
-    pyperclip.copy(completed_password)
-    print("Copied to clipboard.")
-elif input in narp:
-    print("The password is " + completed_password)
-else:
-    print("Sorry, I didn't understand that")
+pyperclip.copy(completed_password)
