@@ -5,8 +5,13 @@
 import random
 import pyperclip
 import csv
+import sys
 
 secure_random = random.SystemRandom()
+
+input = sys.argv[1]
+yarp = ["y", "Y", "yes", "YES", "Yes","yarp", "YARP", "Yarp"]
+narp =["n", "N", "no", "NO", "narp", "NARP", "Narp"]
 
 def getFirstWord():
     lines = [line.rstrip('\n') for line in open('first.txt')]
@@ -32,12 +37,6 @@ def makePassword():
     return password
 
 completed_password = makePassword()
-
-input = input("Would you like to copy the password to your clipboard? (Y/N) ")
-
-yarp = ["y", "Y", "yes", "YES", "Yes","yarp", "YARP", "Yarp"]
-
-narp =["n", "N", "no", "NO", "narp", "NARP", "Narp"]
 
 if input in yarp:
     pyperclip.copy(completed_password)
